@@ -15,3 +15,8 @@ function divide(x, y) {
     return x / y;
 }
 
+
+// CALCULATOR OPERATION VARIABLES
+let x;
+let op;
+let y;
