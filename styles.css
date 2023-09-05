@@ -3,10 +3,30 @@
     padding: 0;
     box-sizing: border-box;
     border: solid 1px red;
+    background-color: lightgray;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
 }
 
 .calculator-container {
-    width: 100px;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 50px;
+    gap: 20px;
+}
+
+.display {
+    text-align: center;
+}
+
+.numpad {
     display: flex;
     justify-content: center;
+    gap: 20px;
 }
