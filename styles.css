@@ -22,11 +22,40 @@ body {
 }
 
 .display {
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70px;
+    font-size: 20px;
 }
 
 .numpad {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    padding: 10px;
 }
+
+button {
+    padding: 20px;
+    font-size: 24px;
+    height: 80px;
+    width: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.numbers {
+    display: flex;
+    width: 500px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.operators {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
