@@ -38,3 +38,16 @@ function operate(n1, operator, n2) {
             return divide(n1, n2);
     }
 }
+
+
+// DISPLAY
+const display = document.querySelector('.display');
+
+let buttons = document.querySelectorAll('button');
+buttons.forEach( btn => btn.addEventListener('click', displayValue));
+
+function displayValue(e) {
+    let currentValues = display.textContent;
+    currentValues += e.target.textContent;
+    display.textContent = currentValues;
+}
