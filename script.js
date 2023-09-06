@@ -42,12 +42,21 @@ function operate(n1, operator, n2) {
 
 // DISPLAY
 const display = document.querySelector('.display');
-
-let buttons = document.querySelectorAll('button');
+const buttons = document.querySelectorAll('button');
 buttons.forEach( btn => btn.addEventListener('click', displayValue));
 
 function displayValue(e) {
     let currentValues = display.textContent;
     currentValues += e.target.textContent;
     display.textContent = currentValues;
+}
+
+
+// CLEAR BUTTON
+const clearBtn = document.querySelector('.clear');
+clearBtn.removeEventListener('click', displayValue);
+clearBtn.addEventListener('click', clearDisplay);
+
+function clearDisplay() {
+    display.textContent = '';
 }
