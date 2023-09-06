@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    border: solid 1px red;
+    outline: red solid 1px;
     background-color: rgb(63, 63, 63);
 }
 
@@ -29,6 +29,7 @@ body {
     height: 70px;
     font-size: 20px;
     background-color: lightgrey;
+    border-radius: 8px;
 }
 
 .numpad {
@@ -45,6 +46,11 @@ button {
     justify-content: center;
     align-items: center;
     background-color: lightgray;
+    border-radius: 8px;
+}
+
+button:active {
+    background-color: rgb(174, 174, 174);
 }
 
 .numbers {
