@@ -40,7 +40,7 @@ function operate(n1, operator, n2) {
 }
 
 
-// DISPLAY
+// UPDATE DISPLAY
 const display = document.querySelector('.display');
 const buttons = document.querySelectorAll('button');
 buttons.forEach( btn => btn.addEventListener('click', displayValue));
@@ -60,3 +60,22 @@ clearBtn.addEventListener('click', clearDisplay);
 function clearDisplay() {
     display.textContent = '';
 }
+
+
+// EQUAL BUTTON
+/*
+- when equal button is clicked, store what's currently in the
+display into a variable
+- then split that string into an array that gives [num1, op, num2]
+- pass these array values to operate() which will return the final answer
+- store the final answer into a new variable
+- update the display to show the final answer 
+*/
+const equalBtn = document.querySelector('.equal');
+equalBtn.removeEventListener('click', displayValue);
+equalBtn.addEventListener('click', evaluate);
+
+function evaluate() {
+    let expression = display.textContent;
+    console.log(expression);
+};
