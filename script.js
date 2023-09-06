@@ -16,12 +16,6 @@ function divide(x, y) {
 }
 
 
-// CALCULATOR OPERATION VARIABLES
-let x;
-let op;
-let y;
-
-
 // OPERATION
 function operate(n1, operator, n2) {
     switch(operator) {
@@ -84,7 +78,15 @@ const equalBtn = document.querySelector('.equal');
 equalBtn.removeEventListener('click', displayValue);
 equalBtn.addEventListener('click', evaluate);
 
+let x;
+let op;
+let y;
+
 function evaluate() {
     let expression = display.textContent;
-    console.log(expression);
+    let expressionArr = expression.split(' ');
+
+    x = expressionArr[0];
+    op = expressionArr[1];
+    y = expressionArr[2];
 };
