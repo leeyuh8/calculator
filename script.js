@@ -91,8 +91,13 @@ function getExpressionParts() {
     y = +expressionArr[2];
 };
 
+function displayAnswer(text) {
+    display.textContent = '';
+    display.textContent = `${text}`;
+}
+
 function evaluateExpression() {
     getExpressionParts();
     let answer = operate(x, op, y);
-    console.log(answer);
+    displayAnswer(answer);
 }
