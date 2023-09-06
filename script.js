@@ -1,18 +1,18 @@
 // MATH FUNCTIONS
-function add(x, y) {
-    return x + y;
+function add(n1, n2) {
+    return n1 + n2;
 }
 
-function subtract(x, y) {
-    return x - y;
+function subtract(n1, n2) {
+    return n1 - n2;
 }
 
-function multiply(x, y) {
-    return x * y;
+function multiply(n1, n2) {
+    return n1 * n2;
 }
 
-function divide(x, y) {
-    return x / y;
+function divide(n1, n2) {
+    return n1 / n2;
 }
 
 
@@ -76,17 +76,23 @@ display into a variable
 */
 const equalBtn = document.querySelector('.equal');
 equalBtn.removeEventListener('click', displayValue);
-equalBtn.addEventListener('click', evaluate);
+equalBtn.addEventListener('click', evaluateExpression);
 
 let x;
 let op;
 let y;
 
-function evaluate() {
+function getExpressionParts() {
     let expression = display.textContent;
     let expressionArr = expression.split(' ');
 
-    x = expressionArr[0];
+    x = +expressionArr[0];
     op = expressionArr[1];
-    y = expressionArr[2];
+    y = +expressionArr[2];
 };
+
+function evaluateExpression() {
+    getExpressionParts();
+    let answer = operate(x, op, y);
+    console.log(answer);
+}
