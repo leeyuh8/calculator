@@ -47,8 +47,17 @@ buttons.forEach( btn => btn.addEventListener('click', displayValue));
 
 function displayValue(e) {
     let currentValues = display.textContent;
-    currentValues += e.target.textContent;
-    display.textContent = currentValues;
+
+    if (e.target.textContent === '+' 
+        || e.target.textContent === '-'
+        || e.target.textContent === 'x'
+        || e.target.textContent === '/') {
+        currentValues += ' ' + e.target.textContent + ' '
+    } else {
+        currentValues += e.target.textContent;
+    }
+
+    display.textContent = currentValues; 
 }
 
 
