@@ -25,7 +25,7 @@ function operate(n1, operator, n2) {
         case '-':
             return subtract(n1, n2);
             break;
-        case '*':
+        case 'x':
             return multiply(n1, n2);
             break;
         case '/':
@@ -95,6 +95,7 @@ function displayAnswer(text) {
     display.textContent = '';
     display.textContent = `${text}`;
 }
+
 
 function evaluateExpression() {
     getExpressionParts();
