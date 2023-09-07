@@ -42,21 +42,21 @@ numberBtn.forEach( btn => btn.addEventListener('click', displayValue));
 const operatorBtn = document.querySelectorAll('.operators > *');
 operatorBtn.forEach( btn => btn.addEventListener('click', displayValue));
 
+const numbers = ['0', '1' , '2', '3', '4', '5', '6', '7', '8', '9'];
 const ops = ['+', '-', 'x', '/'];
 
 function displayValue(e) {
-    if (equalClicked === true && /[0-9]/.test(e.target.textContent)) {
+    // actions following equal begin clicked
+    if (equalClicked === true && numbers.includes(e.target.textContent)) {
         display.textContent = '';
         equalClicked = false;
     } else if (equalClicked === true && ops.includes(e.target.textContent)) {
         equalClicked = false;
     }
 
+    // actions to display value
     let currentValues = display.textContent;
-    if (e.target.textContent === '+' 
-        || e.target.textContent === '-'
-        || e.target.textContent === 'x'
-        || e.target.textContent === '/') {
+    if (ops.includes(e.target.textContent)) {
         currentValues += ' ' + e.target.textContent + ' '
     } else {
         currentValues += e.target.textContent;
