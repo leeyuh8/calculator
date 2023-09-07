@@ -106,4 +106,8 @@ function evaluateExpression() {
     displayAnswer(answer);
 }
 
-
+/*
+NEXT GOAL: user wants to input 12 + 7 - 3. 
+Make your calculator evaluate the first pair of numbers when the -
+button is clicked. Then the next operation is sum - 3.
+*/
