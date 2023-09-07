@@ -43,6 +43,11 @@ const operatorBtn = document.querySelectorAll('.operators > *');
 operatorBtn.forEach( btn => btn.addEventListener('click', displayValue));
 
 function displayValue(e) {
+    if (equalClicked === true) {
+        display.textContent = '';
+        equalClicked = false;
+    }
+
     let currentValues = display.textContent;
 
     if (e.target.textContent === '+' 
@@ -74,6 +79,7 @@ equalBtn.addEventListener('click', evaluateExpression);
 let x;
 let op;
 let y;
+let equalClicked = false;
 
 function getExpressionParts() {
     let expression = display.textContent;
@@ -91,7 +97,11 @@ function displayAnswer(text) {
 
 
 function evaluateExpression() {
+    equalClicked = true;
+    
     getExpressionParts();
     let answer = operate(x, op, y);
     displayAnswer(answer);
 }
+
+
