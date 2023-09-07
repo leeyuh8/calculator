@@ -42,14 +42,17 @@ numberBtn.forEach( btn => btn.addEventListener('click', displayValue));
 const operatorBtn = document.querySelectorAll('.operators > *');
 operatorBtn.forEach( btn => btn.addEventListener('click', displayValue));
 
+const ops = ['+', '-', 'x', '/'];
+
 function displayValue(e) {
-    if (equalClicked === true) {
+    if (equalClicked === true && /[0-9]/.test(e.target.textContent)) {
         display.textContent = '';
+        equalClicked = false;
+    } else if (equalClicked === true && ops.includes(e.target.textContent)) {
         equalClicked = false;
     }
 
     let currentValues = display.textContent;
-
     if (e.target.textContent === '+' 
         || e.target.textContent === '-'
         || e.target.textContent === 'x'
@@ -58,7 +61,6 @@ function displayValue(e) {
     } else {
         currentValues += e.target.textContent;
     }
-
     display.textContent = currentValues; 
 }
 
