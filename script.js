@@ -46,7 +46,7 @@ const numbers = ['0', '1' , '2', '3', '4', '5', '6', '7', '8', '9'];
 const ops = ['+', '-', 'x', '/'];
 
 function displayValue(e) { 
-    // actions following equal begin clicked
+    // actions if equal was just clicked
     if (equalClicked === true && numbers.includes(e.target.textContent)) {
         display.textContent = '';
         equalClicked = false;
@@ -91,15 +91,15 @@ equalBtn.addEventListener('click', toggleEqualClicked);
 let x;
 let op;
 let y;
+let answer;
 let equalClicked = false;
 
 function getExpressionParts() {
-    let expression = display.textContent;
-    let expressionArr = expression.split(' ');
+    let expressionArr = display.textContent.split(' ');
 
-    x = +expressionArr[0];
+    x = expressionArr[0];
     op = expressionArr[1];
-    y = +expressionArr[2];
+    y = expressionArr[2];
 };
 
 function displayAnswer(text) {
@@ -111,10 +111,16 @@ function toggleEqualClicked() {
     equalClicked = true;
 }
 
-
 function evaluateExpression() {
     getExpressionParts();
-    let answer = operate(x, op, y);
+
+    let answer;
+    if (x === '' || op === '' || y === '') {
+        answer = 'invalid expression';
+    } else {
+        answer = operate(+x, op, +y);
+    }
+    
     displayAnswer(answer);
 }
 
