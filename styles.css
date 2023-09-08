@@ -70,8 +70,8 @@ button:active {
     background-color: grey;
 }
 
-.zero {
-    display: flex;
-    flex-grow: 2;
+.zero, .back {
+    width: 180px;
 }
+
 
