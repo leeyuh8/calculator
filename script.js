@@ -115,7 +115,8 @@ function evaluateExpression() {
     getExpressionParts();
 
     let answer;
-    if (x === '' || op === '' || y === '') {
+    if (x === '' || op === '' || y === ''
+       || x === undefined || op === undefined || y === undefined) {
         answer = 'invalid expression';
     } else {
         answer = operate(+x, op, +y);
