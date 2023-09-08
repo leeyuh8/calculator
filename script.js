@@ -76,10 +76,13 @@ function displayValue(e) {
 
 // CLEAR BUTTON
 const clearBtn = document.querySelector('.clear');
-clearBtn.addEventListener('click', clearDisplay);
+clearBtn.addEventListener('click', clearData);
 
-function clearDisplay() {
+function clearData() {
     display.textContent = '';
+    x = undefined;
+    op = undefined;
+    y = undefined;
 }
 
 
@@ -91,7 +94,6 @@ equalBtn.addEventListener('click', toggleEqualClicked);
 let x;
 let op;
 let y;
-let answer;
 let equalClicked = false;
 
 function getExpressionParts() {
