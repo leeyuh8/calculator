@@ -39,7 +39,7 @@ const display = document.querySelector('.display');
 
 const numberBtn = document.querySelectorAll('.num');
 numberBtn.forEach( btn => btn.addEventListener('click', displayValue));
-const operatorBtn = document.querySelectorAll('.operators > *');
+const operatorBtn = document.querySelectorAll('.op');
 operatorBtn.forEach( btn => btn.addEventListener('click', displayValue));
 
 const numbers = ['0', '1' , '2', '3', '4', '5', '6', '7', '8', '9'];

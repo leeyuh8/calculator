@@ -35,13 +35,15 @@ body {
 .numpad {
     display: flex;
     justify-content: center;
+    gap: 10px;
+    background-color: gray;
 }
 
 button {
     padding: 20px;
     font-size: 24px;
-    height: 80px;
-    width: 80px;
+    height: 70px;
+    width: 85px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -68,4 +70,8 @@ button:active {
     background-color: grey;
 }
 
+.zero {
+    display: flex;
+    flex-grow: 2;
+}
 
