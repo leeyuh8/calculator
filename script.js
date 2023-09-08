@@ -45,7 +45,7 @@ operatorBtn.forEach( btn => btn.addEventListener('click', displayValue));
 const numbers = ['0', '1' , '2', '3', '4', '5', '6', '7', '8', '9'];
 const ops = ['+', '-', 'x', '/'];
 
-function displayValue(e) {
+function displayValue(e) { 
     // actions following equal begin clicked
     if (equalClicked === true && numbers.includes(e.target.textContent)) {
         display.textContent = '';
@@ -53,6 +53,15 @@ function displayValue(e) {
     } else if (equalClicked === true && ops.includes(e.target.textContent)) {
         equalClicked = false;
     }
+
+    // actions if user inputs expression greater than 2 terms
+    if ( (display.textContent.indexOf('+') > -1
+         || display.textContent.indexOf('-') > -1
+         || display.textContent.indexOf('x') > -1
+         || display.textContent.indexOf('/') > -1)
+        && ops.includes(e.target.textContent)) {
+        evaluateExpression();
+    };
 
     // actions to display value
     let currentValues = display.textContent;
@@ -77,6 +86,7 @@ function clearDisplay() {
 // EQUAL BUTTON
 const equalBtn = document.querySelector('.equal');
 equalBtn.addEventListener('click', evaluateExpression);
+equalBtn.addEventListener('click', toggleEqualClicked);
 
 let x;
 let op;
@@ -97,17 +107,15 @@ function displayAnswer(text) {
     display.textContent = `${text}`;
 }
 
+function toggleEqualClicked() {
+    equalClicked = true;
+}
+
 
 function evaluateExpression() {
-    equalClicked = true;
-    
     getExpressionParts();
     let answer = operate(x, op, y);
     displayAnswer(answer);
 }
 
-/*
-NEXT GOAL: user wants to input 12 + 7 - 3. 
-Make your calculator evaluate the first pair of numbers when the -
-button is clicked. Then the next operation is sum - 3.
-*/
+
