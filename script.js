@@ -90,6 +90,22 @@ function displayValue(e) {
         currentValues += e.target.textContent;
     };
     display.textContent = currentValues; 
+};
+
+
+const backBtn = document.querySelector('.back');
+backBtn.addEventListener('click', deleteOne);
+
+function deleteOne() {
+    let str = display.textContent;
+
+    let editedStr;
+    if (str.slice(-1) === ' ') {
+        editedStr = str.substring(0, str.length - 3);
+    } else {
+        editedStr = str.substring(0, str.length - 1);
+    };
+    display.textContent = editedStr;
 }
 
 
