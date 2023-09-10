@@ -70,7 +70,7 @@ button:active {
     background-color: grey;
 }
 
-.zero, .back {
+.zero {
     width: 180px;
 }
 

@@ -43,13 +43,17 @@ const operatorBtn = document.querySelectorAll('.op');
 operatorBtn.forEach( btn => btn.addEventListener('click', displayValue));
 const pointBtn = document.querySelector('.point');
 pointBtn.addEventListener('click', displayValue);
+const signBtn = document.querySelector('.sign');
+signBtn.addEventListener('click', displayValue);
 
 const numbers = ['0', '1' , '2', '3', '4', '5', '6', '7', '8', '9'];
 const ops = ['+', '-', 'x', '/'];
 
 function displayValue(e) { 
     // actions if equal was just clicked
-    if (equalClicked === true && numbers.includes(e.target.textContent)) {
+    if (equalClicked === true 
+        && (numbers.includes(e.target.textContent)
+        || e.target.textContent === '+/-')) {
         display.textContent = '';
         equalClicked = false;
     } else if (equalClicked === true && ops.includes(e.target.textContent)) {
@@ -57,22 +61,30 @@ function displayValue(e) {
     };
 
     // actions if user inputs expression greater than 2 terms
-    if ( (display.textContent.indexOf('+') > -1
-         || display.textContent.indexOf('-') > -1
-         || display.textContent.indexOf('x') > -1
-         || display.textContent.indexOf('/') > -1)
+    if ( (display.textContent.indexOf(' + ') > -1
+         || display.textContent.indexOf(' - ') > -1
+         || display.textContent.indexOf(' x ') > -1
+         || display.textContent.indexOf(' / ') > -1)
         && ops.includes(e.target.textContent)) {
         evaluateExpression();
     };
 
-    // actions to display value
+    // actions to display value for operator, point, sign, and numbers
     let currentValues = display.textContent;
     if (ops.includes(e.target.textContent)) {
         currentValues += ' ' + e.target.textContent + ' '
     } else if (e.target.textContent === '.' 
-                && (currentValues.charAt(currentValues.length-1) === '' 
-                || currentValues.charAt(currentValues.length-1) === ' ')) {
-                    currentValues += '0.';
+        && (currentValues.charAt(currentValues.length - 1) === '' 
+        || currentValues.charAt(currentValues.length - 1) === ' ')) {
+            currentValues += '0.';
+    } else if (e.target.textContent === '+/-') {
+        let arr = currentValues.split(' ');
+        if (arr[arr.length - 1].includes('-')) {
+            arr[arr.length - 1] = arr[arr.length - 1].slice(1);
+        } else {
+            arr[arr.length - 1] = '-' + arr[arr.length - 1].slice(0);
+        }
+        currentValues = arr.join(' ');
     } else {
         currentValues += e.target.textContent;
     };
