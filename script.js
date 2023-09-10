@@ -53,7 +53,8 @@ function displayValue(e) {
     // actions if equal was just clicked
     if (equalClicked === true 
         && (numbers.includes(e.target.textContent)
-        || e.target.textContent === '+/-')) {
+        || e.target.textContent === '+/-'
+        || e.target.textContent === '.')) {
         display.textContent = '';
         equalClicked = false;
     } else if (equalClicked === true && ops.includes(e.target.textContent)) {
@@ -101,6 +102,7 @@ function clearData() {
     x = undefined;
     op = undefined;
     y = undefined;
+    equalClicked = false;
 }
 
 
