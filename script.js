@@ -41,6 +41,8 @@ const numberBtn = document.querySelectorAll('.num');
 numberBtn.forEach( btn => btn.addEventListener('click', displayValue));
 const operatorBtn = document.querySelectorAll('.op');
 operatorBtn.forEach( btn => btn.addEventListener('click', displayValue));
+const pointBtn = document.querySelector('.point');
+pointBtn.addEventListener('click', displayValue);
 
 const numbers = ['0', '1' , '2', '3', '4', '5', '6', '7', '8', '9'];
 const ops = ['+', '-', 'x', '/'];
@@ -52,7 +54,7 @@ function displayValue(e) {
         equalClicked = false;
     } else if (equalClicked === true && ops.includes(e.target.textContent)) {
         equalClicked = false;
-    }
+    };
 
     // actions if user inputs expression greater than 2 terms
     if ( (display.textContent.indexOf('+') > -1
@@ -67,9 +69,13 @@ function displayValue(e) {
     let currentValues = display.textContent;
     if (ops.includes(e.target.textContent)) {
         currentValues += ' ' + e.target.textContent + ' '
+    } else if (e.target.textContent === '.' 
+                && (currentValues.charAt(currentValues.length-1) === '' 
+                || currentValues.charAt(currentValues.length-1) === ' ')) {
+                    currentValues += '0.';
     } else {
         currentValues += e.target.textContent;
-    }
+    };
     display.textContent = currentValues; 
 }
 
