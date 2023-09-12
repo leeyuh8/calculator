@@ -34,7 +34,7 @@ function operate(n1, operator, n2) {
 }
 
 
-// NUMBER  & OPERATOR BUTTONS
+// NUMBER & OPERATOR BUTTONS
 const display = document.querySelector('.display');
 
 const numberBtn = document.querySelectorAll('.num');
@@ -163,4 +163,24 @@ function evaluateExpression() {
     displayAnswer(answer);
 }
 
+
+// SOUNDS
+numberBtn.forEach( btn => btn.addEventListener('click', playNumSound));
+const numSound = document.getElementById("num-sound");
+function playNumSound() {
+    numSound.currentTime = 0;
+    numSound.play();
+};
+
+operatorBtn.forEach( btn => btn.addEventListener('click', playOpSound));
+pointBtn.addEventListener('click', playOpSound);
+signBtn.addEventListener('click', playOpSound);
+backBtn.addEventListener('click', playOpSound);
+clearBtn.addEventListener('click', playOpSound);
+equalBtn.addEventListener('click', playOpSound);
+const opSound = document.getElementById("op-sound");
+function playOpSound() {
+    opSound.currentTime = 0;
+    opSound.play();
+};
 
