@@ -95,7 +95,6 @@ function displayValue(e) {
 
 const backBtn = document.querySelector('.back');
 backBtn.addEventListener('click', deleteOne);
-
 function deleteOne() {
     let str = display.textContent;
 
