@@ -157,6 +157,9 @@ function evaluateExpression() {
         answer = 'invalid expression';
     } else {
         answer = operate(+x, op, +y);
+        if (answer.toString().length > 10) {
+            answer = Math.round(answer * 10000000000) / 10000000000;
+        };
     }
     
     displayAnswer(answer);
