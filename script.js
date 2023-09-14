@@ -49,12 +49,14 @@ signBtn.addEventListener('click', displayValue);
 const numbers = ['0', '1' , '2', '3', '4', '5', '6', '7', '8', '9'];
 const ops = ['+', '-', 'x', '/'];
 
+let currentValues;
+
 function displayValue(e) { 
     // actions if equal was just clicked
     if (equalClicked === true 
-        && (numbers.includes(e.target.textContent)
-        || e.target.textContent === '+/-'
-        || e.target.textContent === '.')) {
+    && (numbers.includes(e.target.textContent)
+    || e.target.textContent === '+/-'
+    || e.target.textContent === '.')) {
         display.textContent = '';
         equalClicked = false;
     } else if (equalClicked === true && ops.includes(e.target.textContent)) {
@@ -63,35 +65,53 @@ function displayValue(e) {
 
     // actions if user inputs expression greater than 2 terms
     if ( (display.textContent.indexOf(' + ') > -1
-         || display.textContent.indexOf(' - ') > -1
-         || display.textContent.indexOf(' x ') > -1
-         || display.textContent.indexOf(' / ') > -1)
+    || display.textContent.indexOf(' - ') > -1
+    || display.textContent.indexOf(' x ') > -1
+    || display.textContent.indexOf(' / ') > -1)
         && ops.includes(e.target.textContent)) {
         evaluateExpression();
     };
 
     // actions to display value for operator, point, sign, and numbers
-    let currentValues = display.textContent;
     if (ops.includes(e.target.textContent)) {
-        currentValues += ' ' + e.target.textContent + ' '
+        displayOp(e);
     } else if (e.target.textContent === '.' 
-        && (currentValues.charAt(currentValues.length - 1) === '' 
-        || currentValues.charAt(currentValues.length - 1) === ' ')) {
-            currentValues += '0.';
+    && (currentValues.charAt(currentValues.length - 1) === '' 
+    || currentValues.charAt(currentValues.length - 1) === ' ')) {
+        displayPoint(e);
     } else if (e.target.textContent === '+/-') {
-        let arr = currentValues.split(' ');
-        if (arr[arr.length - 1].includes('-')) {
-            arr[arr.length - 1] = arr[arr.length - 1].slice(1);
-        } else {
-            arr[arr.length - 1] = '-' + arr[arr.length - 1].slice(0);
-        }
-        currentValues = arr.join(' ');
+        displaySign(e);
     } else {
-        currentValues += e.target.textContent;
+        displayNumber(e);
     };
     display.textContent = currentValues; 
 };
 
+function displayOp(e) {
+    currentValues = display.textContent;
+    currentValues += ' ' + e.target.textContent + ' ';
+};
+
+function displayPoint(e) {
+    currentValues = display.textContent;
+    currentValues += '0.';
+};
+
+function displaySign(e) {
+    currentValues = display.textContent;
+    let arr = currentValues.split(' ');
+    if (arr[arr.length - 1].includes('-')) {
+        arr[arr.length - 1] = arr[arr.length - 1].slice(1);
+    } else {
+        arr[arr.length - 1] = '-' + arr[arr.length - 1].slice(0);
+    }
+    currentValues = arr.join(' ');
+};
+
+function displayNumber(e) {
+    currentValues = display.textContent;
+    currentValues += e.target.textContent;
+};
 
 const backBtn = document.querySelector('.back');
 backBtn.addEventListener('click', deleteOne);
@@ -105,7 +125,7 @@ function deleteOne() {
         editedStr = str.substring(0, str.length - 1);
     };
     display.textContent = editedStr;
-}
+};
 
 
 // CLEAR BUTTON
@@ -114,6 +134,7 @@ clearBtn.addEventListener('click', clearData);
 
 function clearData() {
     display.textContent = '';
+    currentValues = '';
     x = undefined;
     op = undefined;
     y = undefined;
