@@ -72,7 +72,14 @@ function displayValue(e) {
         evaluateExpression();
     };
 
-    // actions to display value for operator, point, sign, and numbers
+    // Stop displaying values if user inputs large number
+    let arr = display.textContent.split(' ');
+    if (arr[arr.length - 1].length >= 10
+    && !ops.includes(e.target.textContent)) {
+        return;
+    };
+
+    // actions to display operator, point, sign, and numbers
     if (ops.includes(e.target.textContent)) {
         displayOp(e);
     } else if (e.target.textContent === '.') {
