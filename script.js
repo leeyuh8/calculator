@@ -75,9 +75,7 @@ function displayValue(e) {
     // actions to display value for operator, point, sign, and numbers
     if (ops.includes(e.target.textContent)) {
         displayOp(e);
-    } else if (e.target.textContent === '.' 
-    && (currentValues.charAt(currentValues.length - 1) === '' 
-    || currentValues.charAt(currentValues.length - 1) === ' ')) {
+    } else if (e.target.textContent === '.') {
         displayPoint(e);
     } else if (e.target.textContent === '+/-') {
         displaySign(e);
@@ -94,7 +92,19 @@ function displayOp(e) {
 
 function displayPoint(e) {
     currentValues = display.textContent;
-    currentValues += '0.';
+
+    // Display point with leading 0
+    if (currentValues.charAt(currentValues.length - 1) === '' 
+    || currentValues.charAt(currentValues.length - 1) === ' ') {
+        currentValues += '0.';
+        return;
+    };
+    
+    // Display point without leading 0 and extra points
+    let arr = currentValues.split(" ");
+    if (arr[arr.length - 1].includes('.') === false) {
+        currentValues += e.target.textContent;
+    };
 };
 
 function displaySign(e) {
