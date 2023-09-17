@@ -57,6 +57,7 @@ button {
     background-color: white;
     border-radius: 8px;
     color: #001A23;
+    border: none;
 }
 
 button:active {
