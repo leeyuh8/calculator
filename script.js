@@ -79,6 +79,13 @@ function displayValue(e) {
         return;
     };
 
+    // Stop displaying values if display shows "invalid expression"
+    // and user clicks an operator
+    if (display.textContent === 'invalid expression'
+    && ops.includes(e.target.textContent)) {
+        return;
+    };
+
     // actions to display operator, point, sign, and numbers
     if (ops.includes(e.target.textContent)) {
         displayOp(e);
