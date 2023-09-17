@@ -130,6 +130,20 @@ function displayNumber(e) {
     currentValues += e.target.textContent;
 };
 
+
+
+// CLEAR & BACK BUTTON
+const clearBtn = document.querySelector('.clear');
+clearBtn.addEventListener('click', clearData);
+function clearData() {
+    display.textContent = '';
+    currentValues = '';
+    x = undefined;
+    op = undefined;
+    y = undefined;
+    equalClicked = false;
+}
+
 const backBtn = document.querySelector('.back');
 backBtn.addEventListener('click', deleteOne);
 function deleteOne() {
@@ -143,20 +157,6 @@ function deleteOne() {
     };
     display.textContent = editedStr;
 };
-
-
-// CLEAR BUTTON
-const clearBtn = document.querySelector('.clear');
-clearBtn.addEventListener('click', clearData);
-
-function clearData() {
-    display.textContent = '';
-    currentValues = '';
-    x = undefined;
-    op = undefined;
-    y = undefined;
-    equalClicked = false;
-}
 
 
 // EQUAL BUTTON

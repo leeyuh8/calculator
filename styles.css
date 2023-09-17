@@ -7,10 +7,14 @@
     font-family: 'Poppins', sans-serif;
 }
 
+
+
 body {
     display: flex;
-    justify-content: center;
-    padding-top: 50px;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 30px;
+    margin-bottom: 50px;
 }
 
 .calculator-container {
@@ -104,3 +108,23 @@ button:active {
     font-weight: bold;
 }
 
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    padding-bottom: 10px;
+    color: #001A23;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    height: 20px;
+}
