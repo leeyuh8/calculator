@@ -3,5 +3,4 @@
 PURPOSE: to practice using HTML, CSS, and JavaScript to create
 a calculator.
 
-SKILLS: 
-    -
+[Live Demo](https://leeyuh8.github.io/odin-calculator/)
