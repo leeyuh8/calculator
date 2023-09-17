@@ -72,17 +72,18 @@ function displayValue(e) {
         evaluateExpression();
     };
 
+    // Actions if display shows "invalid expression"
+    if (display.textContent === 'invalid expression'
+    && ops.includes(e.target.textContent)) {
+        return;
+    } else if (display.textContent === 'invalid expression') {
+        clearData();
+    };
+
     // Stop displaying values if user inputs large number
     let arr = display.textContent.split(' ');
     if (arr[arr.length - 1].length >= 10
     && !ops.includes(e.target.textContent)) {
-        return;
-    };
-
-    // Stop displaying values if display shows "invalid expression"
-    // and user clicks an operator
-    if (display.textContent === 'invalid expression'
-    && ops.includes(e.target.textContent)) {
         return;
     };
 
