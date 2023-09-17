@@ -8,7 +8,7 @@
 }
 
 
-
+/* MAIN */
 body {
     display: flex;
     flex-direction: column;
@@ -108,6 +108,8 @@ button:active {
     font-weight: bold;
 }
 
+
+/* FOOTER */
 html {
     position: relative;
     min-height: 100%;
