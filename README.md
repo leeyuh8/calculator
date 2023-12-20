@@ -1,5 +1,5 @@
 # Calculator
-[Live Demo](https://leeyuh8.github.io/calculator/)
+[Live Demo](https://strallia.github.io/calculator/)
 
 ## Purpose:
 To practice using HTML, CSS, and JavaScript to create
